@@ -147,6 +147,7 @@ if ~exist('strKopfzeile', 'var') && exist('strKopfspalte', 'var') && length(strK
     fprintf(fid, charColumnFormat, C{:});
 end
 
+c_fusz = 0
 if exist('h_Fuszzeile', 'var') 
     c_fusz = cell(1, colNum) ;
     for kk = 1:colNum

@@ -1,4 +1,4 @@
-function [pM, pK, G] = bk(doAK, doVK, doST, doV, doSP,doRW,  doLL , doJ, varargin)
+function [pM, pK, G] = bk(doAK, doVK, doST, doV, doSP, doRW,  doLL , doJ, varargin)
 
 
     % =====================================================================
@@ -22,6 +22,8 @@ function [pM, pK, G] = bk(doAK, doVK, doST, doV, doSP,doRW,  doLL , doJ, varargi
     %  KreditHebelPlot  Break Even für Annuitätendarlehen, default: false
     %  tablePlot        Print table in console, default: true 
     %  label            Label für Betriebskosten, default: ''
+    %  zinsen           Falls finanziert, dann Zinsen in Prozent angeben.
+    %  restwert         Falls vorhanden, Restwert angeben.
     %  
     %  Examples
     %  --------
@@ -32,7 +34,7 @@ function [pM, pK, G] = bk(doAK, doVK, doST, doV, doSP,doRW,  doLL , doJ, varargi
     %
     % ========================================================= Grzegorz ==
 
-    
+pkg load financial    
     
 if nargin < 8
     help bk
@@ -45,6 +47,9 @@ loKHPlot = false ;
 % plotPie = false;
 loTablePlot = true ;
 strLabel = '';
+interest = 0;
+restwert = 0;
+
 for kk=1:2:length(varargin)
     if strcmpi('strE', varargin{kk})
         strE = varargin{kk+1} ;
@@ -66,21 +71,37 @@ for kk=1:2:length(varargin)
         loTablePlot = varargin{kk+1} ;
         continue
     end
+    if strcmpi('zinsen', varargin{kk})
+        interest = varargin{kk+1} ;
+        continue
+    end
     if strcmpi('label', varargin{kk})
         strLabel = varargin{kk+1} ;
+        continue
+    end
+    if strcmpi('restwert', varargin{kk})
+        restwert = varargin{kk+1} ;
         continue
     end
     error(['Parameter ' varargin{kk} ' not found.'])
 end
 
+if interest > 0
+  monatliche_rate = pmt(interest/100/12, doJ*12, doAK, 0)
+else
+  monatliche_rate = 1/12* doAK/doJ 
+end
+zinsen  = monatliche_rate*12*doJ - doAK
+
 doLL  = doLL * doJ ;
 doGAn = [doAK                      doAK/doJ                       1/12* doAK/doJ                         doAK/doLL*100];
+doGF  = [zinsen                    zinsen/doJ                     1/12* zinsen/doJ                       zinsen/doLL*100];
 doGVK = [doVK*doJ                  doVK                           1/12* doVK                             doVK*doJ/doLL*100];
 doGRW = [doRW*doJ                  doRW                           1/12* doRW                             doRW*doJ/doLL*100];
 doGST = [doST*doJ                  doST                           1/12* doST                             doST*doJ/doLL*100];
 doGSP = [doV * doSP * doLL / 100   doV * doSP * doLL / 100 / doJ  1/12* doV * doSP * doLL / 100 / doJ    doV * doSP  ];
 
-G = [doGAn; doGVK; doGST; doGRW; doGSP];
+G = [doGAn; doGF; doGVK; doGST; doGRW; doGSP];
 
 if loWVPlot
 %     try 
@@ -120,7 +141,8 @@ if loTablePlot
     
     fprintf(1, 'Betriebskosten'), fprintf(1, ' ( %s )\n', strLabel) ;
     fprintf(1, '=============='), fprintf(1, '%s\n\n', char(double('=') * (ones(1, numel(strLabel)+5)))) ;
-    fprintf(1, 'Wertverlust, einmalig                                %s: %8.2f\n', repmat(' ', [1, numel(strE)-1]), doAK) ;
+    fprintf(1, 'Anschaffungskosten, einmalig                         %s: %8.2f\n', repmat(' ', [1, numel(strE)-1]), doAK) ;
+    fprintf(1, 'Finanzierungszins [%%],                               %s: %8.2f\n', repmat(' ', [1, numel(strE)-1]), interest) ;
     fprintf(1, 'Versicherungskosten, jährlich                        %s: %8.2f\n', repmat(' ', [1, numel(strE)-1]), doVK) ;
     fprintf(1, 'Steuern, jährlich                                    %s: %8.2f\n', repmat(' ', [1, numel(strE)-1]), doST) ;
     fprintf(1, 'Verbrauch in %s/100 km                                : %8.2f\n', strE, doV ) ;
@@ -131,7 +153,7 @@ if loTablePlot
     fprintf(1, 'Haltedauer in Jahren                                 %s: %8.2f\n\n', repmat(' ', [1, numel(strE)-1]), doJ) ;
     
     ftable(G, 'KopfZeile',  {'Gesamt', 'Jährlich', 'Monatlich', 'pro KM'}, ...
-        'Kopfspalte', {'Wertverlust', 'Versicherung',  'Steuern', 'Reparaturen', 'Verbrauch'}, ...
+        'Kopfspalte', {'Anschaffungskosten', 'Zinsen', 'Versicherung',  'Steuern', 'Reparaturen', 'Verbrauch'}, ...
         'kommastellen', 2, ...
         'fuszzeile', @(x)sum(x)) ;
 
