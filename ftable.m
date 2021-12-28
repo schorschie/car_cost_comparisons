@@ -70,15 +70,15 @@ for kk=1:2:(nargin-1)
     error(['Argument ' varargin{kk} ' nicht gefunden.'])
 end
 
-if istable(M)
-    if ~exist('strKopfspalte', 'var')
-        strKopfspalte = M.Properties.RowNames ;
-    end
-    if ~exist('strKopfzeile', 'var')
-        strKopfzeile = M.Properties.VariableNames ;
-    end
-    M = M.Variables ;
-end
+% if istable(M)
+%     if ~exist('strKopfspalte', 'var')
+%        strKopfspalte = M.Properties.RowNames ;
+%    end
+%    if ~exist('strKopfzeile', 'var')
+%        strKopfzeile = M.Properties.VariableNames ;
+%    end
+%    M = M.Variables ;
+%end
 % Dependencies
 C = num2cell(M);
 rowNum = size(M,1) ;

@@ -19,9 +19,9 @@ function [pM, pK, G] = bk(doAK, doVK, doST, doV, doSP,doRW,  doLL , doJ, varargi
     %
     %  strE             Name der Kraftstoffeinheit, default: l
     %  Wertverlustplot  Monatlich Kosten mit Werverlust, default: false
-    %  KreditHebelPlot  Break Even fÃ¼r AnnuitÃ¤tendarlehen, default: false
+    %  KreditHebelPlot  Break Even für Annuitätendarlehen, default: false
     %  tablePlot        Print table in console, default: true 
-    %  label            Label fÃ¼r Betriebskosten, default: ''
+    %  label            Label für Betriebskosten, default: ''
     %  
     %  Examples
     %  --------
@@ -121,16 +121,16 @@ if loTablePlot
     fprintf(1, 'Betriebskosten'), fprintf(1, ' ( %s )\n', strLabel) ;
     fprintf(1, '=============='), fprintf(1, '%s\n\n', char(double('=') * (ones(1, numel(strLabel)+5)))) ;
     fprintf(1, 'Wertverlust, einmalig                                %s: %8.2f\n', repmat(' ', [1, numel(strE)-1]), doAK) ;
-    fprintf(1, 'Versicherungskosten, jÃ¤hrlich                        %s: %8.2f\n', repmat(' ', [1, numel(strE)-1]), doVK) ;
-    fprintf(1, 'Steuern, jÃ¤hrlich                                    %s: %8.2f\n', repmat(' ', [1, numel(strE)-1]), doST) ;
+    fprintf(1, 'Versicherungskosten, jährlich                        %s: %8.2f\n', repmat(' ', [1, numel(strE)-1]), doVK) ;
+    fprintf(1, 'Steuern, jährlich                                    %s: %8.2f\n', repmat(' ', [1, numel(strE)-1]), doST) ;
     fprintf(1, 'Verbrauch in %s/100 km                                : %8.2f\n', strE, doV ) ;
-    fprintf(1, 'Durchschnittlicher Spritpreis Ã¼ber Haltedauer [Â€/%s]  : %8.2f\n', strE, doSP) ;
-    fprintf(1, 'Reparatur und Wartungskosten, jÃ¤hrlich               %s: %8.2f\n', repmat(' ', [1, numel(strE)-1]), doRW) ;
+    fprintf(1, 'Durchschnittlicher Spritpreis über Haltedauer [€/%s]  : %8.2f\n', strE, doSP) ;
+    fprintf(1, 'Reparatur und Wartungskosten, jährlich               %s: %8.2f\n', repmat(' ', [1, numel(strE)-1]), doRW) ;
     fprintf(1, 'Jahreslaufleistung [tkm]                             %s: %8d\n', repmat(' ', [1, numel(strE)-1]), doLL / doJ) ;
     fprintf(1, 'Gesamtlaufleistung [tkm]                             %s: %8d\n', repmat(' ', [1, numel(strE)-1]), doLL) ;
     fprintf(1, 'Haltedauer in Jahren                                 %s: %8.2f\n\n', repmat(' ', [1, numel(strE)-1]), doJ) ;
     
-    ftable(G, 'KopfZeile',  {'Gesamt', 'JÃ¤hrlich', 'Monatlich', 'pro KM'}, ...
+    ftable(G, 'KopfZeile',  {'Gesamt', 'Jährlich', 'Monatlich', 'pro KM'}, ...
         'Kopfspalte', {'Wertverlust', 'Versicherung',  'Steuern', 'Reparaturen', 'Verbrauch'}, ...
         'kommastellen', 2, ...
         'fuszzeile', @(x)sum(x)) ;
