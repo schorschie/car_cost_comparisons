@@ -22,27 +22,29 @@ def bk(acquisition_cost,
     total_millage = millage_yearly*holding_period
     total_consumption = total_millage*consumption/100 * fuel_price
 
-    input_series = pd.Series(index=['Anschaffungskosten',
+    input_series = pd.DataFrame(data=[acquisition_cost,
+                                      interest_rate,
+                                      rest_value,
+                                      insurance_yearly,
+                                      taxes_yearly,
+                                      consumption,
+                                      fuel_price,
+                                      repairs_yearly,
+                                      millage_yearly,
+                                      total_millage,
+                                      holding_period],
+                                index=['Anschaffungskosten [€]',
                                     'Finanzierungszins [%]',
-                                    'Versicherungskosten, jährlich',
-                                    'Steuern, jährlich',
+                                    'Restwert [€]',
+                                    'Versicherungskosten [€/a]',
+                                    'Steuern [€/a]',
                                     'Verbrauch in %s/100 km' %(fuel_unit),
                                     'Durchschnittlicher Spritpreis über Haltedauer [€/%s]' %(fuel_unit),
-                                    'Reparatur und Wartungskosten, jährlich',
+                                    'Reparatur und Wartungskosten [€/a]',
                                     'Jahreslaufleistung [km]',
                                     'Gesamtlaufleistung [km]',
-                                    'Haltedauer in Jahren'],
-                             data=[acquisition_cost,
-                                   interest_rate,
-                                   insurance_yearly,
-                                   taxes_yearly,
-                                   consumption,
-                                   fuel_price,
-                                   repairs_yearly,
-                                   millage_yearly,
-                                   total_millage,
-                                   holding_period])
-    input_series.name = 'Betriebskosten: %s' %(label)
+                                    'Haltedauer [a]'],
+                                columns=['Randbedingungen: %s' %(label)])
 
     index = ['Anschaffungskosten',
              'Zinsen',
@@ -85,13 +87,10 @@ def bk(acquisition_cost,
 
     calc_df.Name = label
 
-    #print(input_series)
-    #print(calc_df.round(2))
-
     return (input_series, calc_df)
 
 if __name__ == '__main__':
-    bk(15000,
+    (input_series, calc_df) = bk(15000,
        800,
        100,
        7,
@@ -102,3 +101,5 @@ if __name__ == '__main__':
        interest_rate=3.0,
        rest_value=3000,
        label='Maximus')
+    print(input_series)
+    print(calc_df.round(2))

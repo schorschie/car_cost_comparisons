@@ -1,0 +1,8 @@
+name: grzegorz
+channels:
+    - conda-forge
+dependencies:
+  - numpy
+  - pandas
+  - jupyter
+  - numpy-financial
