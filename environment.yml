@@ -6,3 +6,7 @@ dependencies:
   - pandas
   - jupyter
   - numpy-financial
+  - pip
+  - pip:
+    - dataframe-image
+    - python-slugify
