@@ -2,6 +2,11 @@
 # Files
 ~$Maximus_II.pptx
 *.*~
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
 
 # Folders
 .ipynb_checkpoints/
