@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy_financial as npf
 
+def df_style(val):
+    return "font-weight: bold"
+
 def bk(acquisition_cost,
        insurance_yearly,
        taxes_yearly,
@@ -44,8 +47,9 @@ def bk(acquisition_cost,
                                     'Jahreslaufleistung [km]',
                                     'Gesamtlaufleistung [km]',
                                     'Haltedauer [a]'],
-                                columns=['Randbedingungen: %s' %(label)])
-
+                                columns=['Randbedingungen'])
+    input_series.name = label
+    
     index = ['Anschaffungskosten',
              'Zinsen',
              'Versicherung',
@@ -86,6 +90,11 @@ def bk(acquisition_cost,
         calc_df = calc_df.append(grand_total)
 
     calc_df.Name = label
+
+    # get a handle on the row that starts with `"Total"`, i.e., the last row here
+    last_row = pd.IndexSlice[calc_df.index[calc_df.index == 'SUMME'], :]
+    # and apply styling to it via the `subset` arg; first arg is styler function above
+    calc_df.style.applymap(df_style, subset=last_row)
 
     return (input_series, calc_df)
 
