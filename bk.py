@@ -1,17 +1,18 @@
+from numpy import singlecomplex
 import pandas as pd
 import numpy_financial as npf
 
 def df_style(val):
     return "font-weight: bold"
 
-def bk(acquisition_cost,
-       insurance_yearly,
-       taxes_yearly,
-       consumption,
-       fuel_price,
-       repairs_yearly,
-       millage_yearly,
-       holding_period,
+def bk(acquisition_cost=0,
+       insurance_yearly=0,
+       taxes_yearly=0,
+       consumption=0,
+       fuel_price=0,
+       repairs_yearly=0,
+       millage_yearly=0,
+       holding_period=0,
        interest_rate=0.0,
        rest_value=0.0,
        fuel_unit='l',
@@ -96,19 +97,23 @@ def bk(acquisition_cost,
     # and apply styling to it via the `subset` arg; first arg is styler function above
     calc_df.style.applymap(df_style, subset=last_row)
 
+    input_series = input_series[input_series.Randbedingungen != 0]
+    #calc_df = calc_df.loc[(calc_df!=0).any(axis=1)]
+    #calc_df = calc_df.dropna()
+
     return (input_series, calc_df)
 
 if __name__ == '__main__':
-    (input_series, calc_df) = bk(15000,
-       800,
-       100,
-       7,
-       1.67,
-       1000,
-       18000,
-       6,
-       interest_rate=3.0,
-       rest_value=3000,
-       label='Maximus')
+    (input_series, calc_df) = bk(acquisition_cost=3300,
+                                 insurance_yearly=361.76,
+                                 taxes_yearly=64,
+                                 consumption=6.6,
+                                 fuel_price=1.36,
+                                 repairs_yearly=395.40,
+                                 millage_yearly=3216,
+                                 holding_period=5.5,
+                                 interest_rate=0.0,
+                                 rest_value=2000,
+                                 label='Micra')
     print(input_series)
     print(calc_df.round(2))

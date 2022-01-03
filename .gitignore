@@ -8,6 +8,7 @@
 *.log
 *.out
 *.synctex.gz
+settings.json
 
 # Folders
 .ipynb_checkpoints/
