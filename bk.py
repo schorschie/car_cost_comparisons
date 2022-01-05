@@ -97,7 +97,7 @@ def bk(acquisition_cost=0,
     # and apply styling to it via the `subset` arg; first arg is styler function above
     calc_df.style.applymap(df_style, subset=last_row)
 
-    input_series = input_series[input_series.Randbedingungen != 0]
+    #input_series = input_series[input_series.Randbedingungen != 0]
     #calc_df = calc_df.loc[(calc_df!=0).any(axis=1)]
     #calc_df = calc_df.dropna()
 
