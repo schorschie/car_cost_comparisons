@@ -334,7 +334,7 @@ Beschreibung,Datum,Tachostand (km),Kosten,Notiz,Ort,Typ,Subtyp,Zahlung,Kategorie
 "Flexrohr","2021-10-6 17:52",250330,226.5,,"Aalen",Service,"Reparatur",,,,,0,,1,48.833021,10.088339,195,,
 "Diagnose Steuerkette","2021-12-18 11:44",253640,53.79,,"Ansbach",Service,"Reparatur",,,,,0,,1,,,201,,
 "Abmeldung ","2021-12-21",253640,7.8,,"Nördlingen",Unterhalt,"Steuer",,,,,0,,1,48.8021,9.80842,203,,
-"Verkauf","2021-12-25",253640,-1500,,"Nördlingen",Unterhalt,"Finanzierung",,,,,0,,1,48.8021,9.80842,203,,
+"Verkauf","2021-12-25",253640,-3000,,"Nördlingen",Unterhalt,"Finanzierung",,,,,0,,1,48.8021,9.80842,203,,
 
 
 Touren
