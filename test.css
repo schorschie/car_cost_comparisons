@@ -1,9 +1,11 @@
 body { 
-    padding-top: 10px; 
+  padding-top: 10px; 
+  font-family: Sans-Serif;
 }
 @media (max-width: 979px) {
   body {
     padding-top: 0px;
+    font-family: Sans-Serif;
   }
 }
  /* Navbar container */
@@ -75,3 +77,32 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 } 
+
+/* Main content */
+.main {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Boundaries Table */
+.boundary-box {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.table-boundaries {
+  display: inline-block;
+}
+.table-boundaries > tbody > tr > th {
+  text-align: left;
+ }
+
+.table-boundaries > tbody > tr > td {
+  text-align: right;
+ }
+
+.car-image {
+  display: inline-block;
+}
+
