@@ -69,8 +69,9 @@ class Operating_Cost():
         real_down_payment = down_payment - government_funding
 
         input_series = pd.DataFrame(data=[instalment,
-                                          government_funding,
                                           down_payment,
+                                          government_funding,
+                                          real_down_payment,
                                           insurance_yearly,
                                           taxes_yearly,
                                           consumption,
@@ -78,11 +79,11 @@ class Operating_Cost():
                                           repairs_yearly,
                                           millage_yearly,
                                           holding_period,
-                                          millage_total,
-                                          real_down_payment],
+                                          millage_total],
                                     index=['Leasingrate [€]',
-                                        'Staatliche Förderung [€]',
                                         'Anzahlung [€]',
+                                        'davon staatliche Förderung [€]',
+                                        'Reale Anzahlung [€]',
                                         'Versicherungskosten [€/a]',
                                         'Steuern [€/a]',
                                         'Verbrauch in %s/100 km' %(fuel_unit),
@@ -90,8 +91,7 @@ class Operating_Cost():
                                         'Reparatur und Wartungskosten [€/a]',
                                         'Jahreslaufleistung [km]',
                                         'Haltedauer [a]',
-                                        'Gesamtlaufleistung [km]',
-                                        'Reale Anzahlung [€]'],
+                                        'Gesamtlaufleistung [km]'],
                                     columns=['Randbedingungen'])
         input_series.name = 'Leasingkosten ' + label
         
@@ -176,8 +176,9 @@ class Operating_Cost():
         real_down_payment = down_payment - government_funding
 
         input_series = pd.DataFrame(data=[acquisition_cost,
-                                          government_funding,
                                           down_payment,
+                                          government_funding,
+                                          real_down_payment,
                                           interest_rate,
                                           rest_value,
                                           insurance_yearly,
@@ -188,11 +189,11 @@ class Operating_Cost():
                                           millage_yearly,
                                           holding_period,
                                           millage_total,
-                                          real_down_payment,
                                           financing_amount],
                                     index=['Anschaffungskosten [€]',
-                                        'Staatliche Förderung [€]',
                                         'Anzahlung [€]',
+                                        'davon staatliche Förderung [€]',
+                                        'Reale Anzahlung [€]',
                                         'Finanzierungszins [%]',
                                         'Restwert [€]',
                                         'Versicherungskosten [€/a]',
@@ -203,7 +204,6 @@ class Operating_Cost():
                                         'Jahreslaufleistung [km]',
                                         'Haltedauer [a]',
                                         'Gesamtlaufleistung [km]',
-                                        'Reale Anzahlung [€]',
                                         'Finanzierungsbetrag [€]'],
                                     columns=['Randbedingungen'])
         input_series.name = 'Kaufkosten ' + label
