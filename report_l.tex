@@ -6,8 +6,18 @@
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
 \RequirePackage[gen]{eurosym}
+\RequirePackage{multirow}
+\RequirePackage{booktabs}
+\RequirePackage[table]{xcolor}
+\RequirePackage{siunitx}
+\RequirePackage{etoolbox}
+\RequirePackage{etoolbox}
+
+\robustify\bfseries
+\robustify\itshape
 
 \begin{document}
+\sisetup{detect-all = true}
 
 \twocolumn
 \section*{Zusammenfassung BMW Kosten}
@@ -595,14 +605,9 @@ Skoda Scala Leasing
 \onecolumn
 \null
 \vfill 
-% \includegraphics[height=6cm]
-\includegraphics[width=0.95\columnwidth]{images/overview1.png}
-
-\null
-\vspace{0.8cm}
-% \includegraphics[height=6cm]
-\includegraphics[width=0.95\columnwidth]{images/overview2.png}
+\includegraphics[width=0.85\columnwidth]{images/overview1.png}
 \vfill 
+
 
 
 \end{document}

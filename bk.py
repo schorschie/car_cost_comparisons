@@ -1,3 +1,4 @@
+from unicodedata import name
 from numpy import singlecomplex
 import pandas as pd
 import numpy_financial as npf
@@ -10,10 +11,10 @@ class Operating_Cost():
     """Betriebskosten calculates monthly costs for leasing and buying cars."""
     
     def __init__(self,
-                 input_frame,
-                 total,
-                 holding_period,
-                 total_millage):
+                 input_frame=pd.DataFrame(),
+                 total=[],
+                 holding_period=1,
+                 total_millage=1):
 
         index = ['Raten',
                 'Versicherung',
@@ -31,7 +32,8 @@ class Operating_Cost():
         calc_df['Monatlich'] = calc_df['Jährlich']/12
         calc_df['per KM'] = calc_df.Gesamt/total_millage
 
-        calc_df.Name = input_frame.name
+        if hasattr(input_frame, 'name'):
+            calc_df.Name = input_frame.name
         
         self.input_frame = input_frame
         self.calc_frame = calc_df
