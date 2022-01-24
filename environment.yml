@@ -6,6 +6,8 @@ dependencies:
   - pandas
   - jupyter
   - numpy-financial
+  - Django
+  - backports.zoneinfo
   - pip
   - pip:
     - dataframe-image
