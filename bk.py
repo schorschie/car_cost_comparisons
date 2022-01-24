@@ -1,4 +1,4 @@
-from unicodedata import name
+# from unicodedata import name
 from numpy import singlecomplex
 import pandas as pd
 import numpy_financial as npf
