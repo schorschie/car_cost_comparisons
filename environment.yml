@@ -14,3 +14,4 @@ dependencies:
   - pip:
     - dataframe-image
     - python-slugify
+    - dict_hash[all] 
