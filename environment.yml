@@ -8,6 +8,8 @@ dependencies:
   - numpy-financial
   - Django
   - backports.zoneinfo
+  - openpyxl
+  - seaborn
   - pip
   - pip:
     - dataframe-image
