@@ -10,6 +10,10 @@ dependencies:
   - backports.zoneinfo
   - openpyxl
   - seaborn
+  - black
+  - flake8
+  - mypy
+  - pre-commit
   - pip
   - pip:
     - dataframe-image
