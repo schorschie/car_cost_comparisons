@@ -1,4 +1,4 @@
-name: grzegorz
+name: car-compare 
 channels:
     - conda-forge
 dependencies:
