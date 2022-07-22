@@ -9,6 +9,7 @@
 *.out
 *.synctex.gz
 settings.json
+credentials.json
 
 # Folders
 .ipynb_checkpoints/
