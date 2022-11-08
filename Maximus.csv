@@ -236,7 +236,7 @@ Beschreibung,Datum,Tachostand (km),Kosten,Notiz,Ort,Typ,Subtyp,Zahlung,Kategorie
 "Kreditrate 0","2015-3-2",76020,350,,,Unterhalt,"Finanzierung",,,"1m",,0,,1,,,1,"1w",100
 "Anzahlung","2015-3-9 14:00",76020,500,,"Bremen",Unterhalt,"Finanzierung",,,,,0,,1,,,2,,
 "Garantie","2015-3-30 7:19",76020,499,,"Bremen",Unterhalt,"Finanzierung",,,,,0,,1,48.761821,9.171866,5,,
-"Dekra Prüfung","2015-3-30 9:31",76020,120,,,Service,"Wartung",,,,,0,,1,,,6,,
+"Dekra Prüfung","2015-3-30 9:31",76020,120,,,Service,"Finanzierung",,,,,0,,1,,,6,,
 "Kundendienst","2015-3-30 15:16",76020,399.99,,"Bremen",Service,"Wartung",,,,,0,,1,48.761797,9.171853,7,,
 "Sommerreifen","2015-3-30 15:17",76020,528.6,,"Bremen",Service,"Verschleißteile",,,,,0,,1,48.761821,9.171866,8,,
 "Kreditrate 1","2015-4-1",76100,350,,,Unterhalt,"Finanzierung",,,,,0,,1,,,9,,
@@ -264,7 +264,7 @@ Beschreibung,Datum,Tachostand (km),Kosten,Notiz,Ort,Typ,Subtyp,Zahlung,Kategorie
 "KFZ-Steuer","2016-3-31 14:26",114810,230,,,Unterhalt,"Steuer",,,"1y",,64,,1,,,42,"1w",100
 "Kreditrate 13","2016-4-1",115753,400,,"Stuttgart",Unterhalt,"Finanzierung",,,,,0,,1,48.761994,9.171873,44,,
 "Reifenwechseln ","2016-4-27 7:55",118740,80,,"Schwäbisch Gmünd",Service,"Wartung",,,"6m",,0,,1,48.761859,9.171938,46,"1w",100
-"TÜV","2016-4-28 7:57",118858,91,,"Schwäbisch Gmünd",Service,"Wartung",,,"2y",,0,,1,48.761859,9.171938,48,"1w",100
+"TÜV","2016-4-28 7:57",118858,91,,"Schwäbisch Gmünd",Service,"Steuer",,,"2y",,0,,1,48.761859,9.171938,48,"1w",100
 "Kreditrate 14","2016-5-2",118858,400,,,Unterhalt,"Finanzierung",,,,,0,,1,,,50,,
 "Kreditrate 15","2016-6-1",122000,400,,,Unterhalt,"Finanzierung",,,,,0,,1,,,52,,
 "Kreditrate 16","2016-7-1",125000,400,,,Unterhalt,"Finanzierung",,,,,0,,1,,,54,,
@@ -312,18 +312,18 @@ Beschreibung,Datum,Tachostand (km),Kosten,Notiz,Ort,Typ,Subtyp,Zahlung,Kategorie
 "Versicherung II / 2018","2018-7-2",200500,384.16,,"Schwäbisch Gmünd",Unterhalt,"Versicherung",,,"6m",,64,,1,48.802118,9.808382,145,"1w",
 "Ölwechsel","2018-8-21 17:47",202187,381.52,,"Schwäbisch Gmünd",Service,"Wartung",,,"2y",32000,0,,1,48.802629,9.808361,147,"1w",100
 "Versicherung / 2019","2019-1-13 21:22",207767,732.02,,"Schwäbisch Gmünd",Unterhalt,"Versicherung",,,"1y",,64,,1,48.802118,9.808382,151,"1w",
-"Starterbatterie Erneuert","2019-1-21 19:52",208462,385.04,,"Nördlingen",Service,"Wartung",,,,,0,,1,48.80207,9.808689,153,,
+"Starterbatterie Erneuert","2019-1-21 19:52",208462,385.04,,"Nördlingen",Service,"Verschleißteile",,,,,0,,1,48.80207,9.808689,153,,
 "Wäsche ","2019-1-22 18:41",208641,7.9,,"Backnang",Service,"Pflege",,,,,0,,1,48.934668,9.437393,155,,
 "Lordosestützen","2019-2-22 12:20",210380,1296,,"Augsburg",Andere,"Tuning",,,,,0,,1,48.256738,10.871096,157,,
 "KFZ-Steuer","2019-3-27",212000,230,,"Aalen",Unterhalt,"Steuer",,,"1y",,0,,1,48.802086,9.808407,159,"1w",100
-"Bremsbeläge","2019-4-26 17:40",213550,509.96,,"Schwäbisch Gmünd",Service,"Wartung",,,,,0,,1,48.802222,9.808212,161,,
+"Bremsbeläge","2019-4-26 17:40",213550,509.96,,"Schwäbisch Gmünd",Service,"Verschleißteile",,,,,0,,1,48.802222,9.808212,161,,
 "Windschutzscheibe","2019-9-19",220812,300,,"Schwäbisch Gmünd",Andere,"Reparatur",,,,,0,,1,48.843791,10.098972,179,,
 "Reifenwechsel","2019-11-15",222000,24.89,,"Schwäbisch Gmünd",Service,"Wartung",,,,,0,,1,,,173,,
 "Versicherung / 2020","2020-1-2",226500,722.66,,"Schwäbisch Gmünd",Unterhalt,"Versicherung",,,"1y",,0,,1,48.802118,9.808382,167,"1w",
 "Motor- und Getriebeölwechsel","2020-2-18 17:12",229977,611.47,,"Schwäbisch Gmünd",Service,"Wartung",,,,,0,,1,48.805963,9.814487,165,,
 "KFZ-Steuer","2020-4-14 20:34",231000,235.08,,"Aalen",Unterhalt,"Steuer",,,"1y",,0,,1,48.802086,9.808407,171,"1w",100
-"Reifen und TÜV","2020-4-28 9:06",231362,448.06,,"Schwäbisch Gmünd",Service,"Wartung",,,,,0,,1,48.843633,10.098836,175,,
-"Stößdämpfer","2020-4-28 9:09",231362,1141.33,,"Schwäbisch Gmünd",Service,"Wartung",,,,,0,,1,48.843686,10.098703,177,,
+"Reifen und TÜV","2020-4-28 9:06",231362,448.06,,"Schwäbisch Gmünd",Service,"Verschleißteile",,,,,0,,1,48.843633,10.098836,175,,
+"Stößdämpfer","2020-4-28 9:09",231362,1141.33,,"Schwäbisch Gmünd",Service,"Verschleißteile",,,,,0,,1,48.843686,10.098703,177,,
 "Reifenwechsel","2020-12-4",236900,29,,"Schwäbisch Gmünd",Service,"Wartung",,,,,0,,1,48.814038,9.823765,181,,
 "Versicherung / 2021","2020-12-7 6:53",236900,200.01,,"Schwäbisch Gmünd",Unterhalt,"Versicherung",,,"1y",,69,,1,48.802118,9.808382,183,"1w",
 "Dachgepäckträger","2021-1-24",237823,305.47,,"Aalen",Andere,"Tuning",,,,,0,,1,48.843716,10.098973,185,,
